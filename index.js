@@ -1,15 +1,9 @@
-'use strict';
+ /**
+    * @format
+    */
 
-var fs = require('fs');
-var path = require('path');
+  import {AppRegistry} from 'react-native';
+  import App from './App';
+  import {name as appName} from './app.json';
 
-exports.get = function(event, context, callback) {
-  var contents = fs.readFileSync(`public${path.sep}index.html`);
-  var result = {
-    statusCode: 200,
-    body: contents.toString(),
-    headers: {'content-type': 'text/html'}
-  };
-
-  callback(null, result);
-};
+  AppRegistry.registerComponent(appName, () => App);
